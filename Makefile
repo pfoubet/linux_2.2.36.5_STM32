@@ -2,8 +2,8 @@ VERSION = 2
 PATCHLEVEL = 6
 SUBLEVEL = 36
 # phef : EXTRAVERSION = .4 + ajout des drivers stm32
-EXTRAVERSION = .6
-NAME = Man-Eating Seals of Antiquity
+EXTRAVERSION = .5
+NAME = Flesh-Eating Bats with Fangs
 
 # *DOCUMENTATION*
 # To see a list of typical targets execute "make help"
