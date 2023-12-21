@@ -196,8 +196,8 @@ asmlinkage int sys_vfork(struct pt_regs *regs)
 /* sys_execve() executes a new program.
  * This is called indirectly via a small wrapper
  */
-asmlinkage int sys_execve(char __user *filenamei, char __user * __user *argv,
-			  char __user * __user *envp, struct pt_regs *regs)
+asmlinkage int sys_execve(char __user *filenamei, const char __user * const __user *argv,
+		const char __user * const __user *envp, struct pt_regs *regs)
 {
 	int error;
 	char * filename;
@@ -218,8 +218,7 @@ int kernel_execve(const char *filename, const char *const argv[], const char *co
 	int ret;
 
 	memset(&regs, 0, sizeof(struct pt_regs));
-	ret = do_execve((char *)filename, (char __user * __user *)argv,
-			(char __user * __user *)envp, &regs);
+	ret = do_execve((const char *)filename, argv, envp, &regs);
 	if (ret < 0)
 		goto out;
 

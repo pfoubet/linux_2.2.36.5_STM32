@@ -406,7 +406,6 @@ int __sysfs_add_one(struct sysfs_addrm_cxt *acxt, struct sysfs_dirent *sd)
  *	is relative to wherever sysfs is mounted.
  *
  *	XXX: does no error checking on @path size
- */
 static char *sysfs_pathname(struct sysfs_dirent *sd, char *path)
 {
 	if (sd->s_parent) {
@@ -416,6 +415,7 @@ static char *sysfs_pathname(struct sysfs_dirent *sd, char *path)
 	strcat(path, sd->s_name);
 	return path;
 }
+NOT USED ! */
 
 /**
  *	sysfs_add_one - add sysfs_dirent to parent

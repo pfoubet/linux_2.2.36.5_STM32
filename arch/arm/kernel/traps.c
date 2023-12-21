@@ -577,7 +577,8 @@ asmlinkage int arm_syscall(int no, struct pt_regs *regs)
 		switch (regs->ARM_r0) {
 		case SYS_ARM_ATOMIC_SET:
 		{
-			unsigned int oldval=0, flags;
+			unsigned int oldval=0;
+			unsigned long flags;
 			local_irq_save(flags);
 			oldval = *(unsigned int *)(regs->ARM_r1);
 			*(unsigned int *)(regs->ARM_r1) = regs->ARM_r2;

@@ -129,6 +129,7 @@ static inline int pm_qos_get_value(struct pm_qos_object *o)
 		/* runtime check for not using enum */
 		BUG();
 	}
+	return -1;
 }
 
 static void update_target(struct pm_qos_object *o, struct plist_node *node,

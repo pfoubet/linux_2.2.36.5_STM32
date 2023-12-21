@@ -131,7 +131,7 @@ fail:
 static struct posix_acl *
 ext2_get_acl(struct inode *inode, int type)
 {
-	int name_index;
+	int name_index=0;
 	char *value = NULL;
 	struct posix_acl *acl;
 	int retval;
@@ -180,7 +180,7 @@ ext2_get_acl(struct inode *inode, int type)
 static int
 ext2_set_acl(struct inode *inode, int type, struct posix_acl *acl)
 {
-	int name_index;
+	int name_index=0;
 	void *value = NULL;
 	size_t size = 0;
 	int error;
