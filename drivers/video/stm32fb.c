@@ -130,30 +130,29 @@ static struct fb_fix_screeninfo vfb_fix __initdata = {
 */
 
 static int vfb_check_var(struct fb_var_screeninfo *var,
-			 struct fb_info *info);
+			struct fb_info *info);
 static int vfb_set_par(struct fb_info *info);
 static int vfb_setcolreg(u_int regno, u_int red, u_int green, u_int blue,
-			 u_int transp, struct fb_info *info);
+			u_int transp, struct fb_info *info);
 static int vfb_pan_display(struct fb_var_screeninfo *var,
-			   struct fb_info *info);
-static ssize_t vfb_sys_read(struct fb_info *info, char __user *buf, size_t count,
-		    loff_t *ppos);
+			struct fb_info *info);
+static ssize_t vfb_sys_read(struct fb_info *info, char __user *buf,
+	 		size_t count, loff_t *ppos);
 static ssize_t vfb_sys_write(struct fb_info *info, const char __user *buf,
-		     size_t count, loff_t *ppos);
+			size_t count, loff_t *ppos);
 
 
 static struct fb_ops vfb_ops = {
-	.owner 			= THIS_MODULE,
-	// pf decommente les 2 lignes read & write
-	// .fb_read        = vfb_sys_read,
-	// .fb_write       = vfb_sys_write,
+	.owner 		= THIS_MODULE,
+	.fb_read        = vfb_sys_read,
+	.fb_write       = vfb_sys_write,
 	.fb_check_var	= vfb_check_var,
-	.fb_set_par		= vfb_set_par,
+	.fb_set_par	= vfb_set_par,
 	.fb_setcolreg	= vfb_setcolreg,
 	.fb_pan_display	= vfb_pan_display,
-    .fb_fillrect    = cfb_fillrect,
-    .fb_copyarea    = cfb_copyarea,
-    .fb_imageblit   = cfb_imageblit,
+	.fb_fillrect    = cfb_fillrect,
+	.fb_copyarea    = cfb_copyarea,
+	.fb_imageblit   = cfb_imageblit,
 };
 
 /*
