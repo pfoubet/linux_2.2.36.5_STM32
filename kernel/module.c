@@ -2522,7 +2522,7 @@ static void module_deallocate(struct module *mod, struct load_info *info)
 	module_free(mod, mod->module_core);
 }
 
-static int post_relocation(struct module *mod, const struct load_info *info)
+static int post_relocation(struct module *mod, struct load_info *info)
 {
 	/* Sort exception table now relocations are done. */
 	sort_extable(mod->extable, mod->extable + mod->num_exentries);
